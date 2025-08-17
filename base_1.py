@@ -21,7 +21,7 @@ print("Table 'utilisateurs' créée avec succès.")
 # Données à insérer
 donnees_utilisateur = ('Jean Claude Kabayabaya','jc.kabayabaya@gmail.com')
 # Requête d'insertion avec des paramètres de substitution
-cursor.execute("INSERT INTO utilisateurs (nom, email) VALUES(?, ?)", donnees_utilisateur)
+cursor.execute("INSERT OR IGNORE INTO utilisateurs (nom, email) VALUES(?, ?)", donnees_utilisateur)
 # Valider l'insertion des données
 conn.commit()
 print("Utilisateur inséré avec succès.")
@@ -30,7 +30,7 @@ utilisateurs = [
 ('Marie Ciza', 'marie.ciza@gmail.com'),
 ('Albert Mukunzi', 'albert.mukunzi@gmail.com')
 ]
-cursor.executemany("INSERT INTO utilisateurs (nom, email) VALUES (?, ?)", utilisateurs)
+cursor.executemany("INSERT OR IGNORE INTO utilisateurs (nom, email) VALUES (?, ?)", utilisateurs)
 conn.commit()
 print("Deux utilisateurs insérés avec succès.")
 
@@ -52,7 +52,7 @@ print(f"L'e-mail de {nom_recherche} est : {email_trouve[0]}")
 # Mettre à jour l'e-mail de 'Jean Claude Kabayabaya''
 nouveau_mail = 'j.claude@yahoo.fr'
 nom_a_modifier = 'Jean Claude Kabayabaya'
-cursor.execute("UPDATE utilisateurs SET email=? WHERE nom=?",
+cursor.execute("UPDATE OR IGNORE utilisateurs SET email=? WHERE nom=?",
 (nouveau_mail, nom_a_modifier))
 conn.commit()
 print(f"E-mail de {nom_a_modifier} mis à jour.")
