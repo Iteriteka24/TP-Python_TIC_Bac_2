@@ -46,7 +46,7 @@ def send_email():
     recipient_email= recipient_entry.get()
     subject = subject_entry.get()
     email_body = message_text.get("1.0", tk.END).strip()
-    sender_password = 'neri5765'
+    sender_password = 'kzgl ewfu uayb ziqh'
     if not all([sender_email, recipient_email, subject, email_body, sender_password]):
         messagebox.showwarning("Champs manquants","Veuillez remplir tous les champs.")
         return
